@@ -144,35 +144,39 @@ window.fetch = function(...args) {
 const addTransformIndexHtml = {
 	name: 'add-transform-index-html',
 	transformIndexHtml(html) {
-		return {
-			html,
-			tags: [
-				{
-					tag: 'script',
-					attrs: { type: 'module' },
-					children: configHorizonsRuntimeErrorHandler,
-					injectTo: 'head',
-				},
-				{
-					tag: 'script',
-					attrs: { type: 'module' },
-					children: configHorizonsViteErrorHandler,
-					injectTo: 'head',
-				},
-				{
-					tag: 'script',
-					attrs: {type: 'module'},
-					children: configHorizonsConsoleErrroHandler,
-					injectTo: 'head',
-				},
-				{
-					tag: 'script',
-					attrs: { type: 'module' },
-					children: configWindowFetchMonkeyPatch,
-					injectTo: 'head',
-				},
-			],
-		};
+		// Only add development scripts in development mode
+		if (isDev) {
+			return {
+				html,
+				tags: [
+					{
+						tag: 'script',
+						attrs: { type: 'module' },
+						children: configHorizonsRuntimeErrorHandler,
+						injectTo: 'head',
+					},
+					{
+						tag: 'script',
+						attrs: { type: 'module' },
+						children: configHorizonsViteErrorHandler,
+						injectTo: 'head',
+					},
+					{
+						tag: 'script',
+						attrs: {type: 'module'},
+						children: configHorizonsConsoleErrroHandler,
+						injectTo: 'head',
+					},
+					{
+						tag: 'script',
+						attrs: { type: 'module' },
+						children: configWindowFetchMonkeyPatch,
+						injectTo: 'head',
+					},
+				],
+			};
+		}
+		return html;
 	},
 };
 
