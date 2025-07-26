@@ -44,11 +44,17 @@ const Header = ({ theme, toggleTheme, handleSocialClick, isMenuOpen, setIsMenuOp
                   size="icon"
                   onClick={toggleTheme}
                   className="hover:bg-white/10"
+                  aria-label="Toggle dark/light theme"
                 >
                   {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
                 </Button>
                 
-                <Button variant="ghost" size="icon" onClick={() => handleSocialClick('https://www.linkedin.com/in/pratik-srivastav-b8a830348/')}>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  onClick={() => handleSocialClick('https://www.linkedin.com/in/pratik-srivastav-b8a830348/')}
+                  aria-label="Visit LinkedIn profile"
+                >
                   <Linkedin className="h-5 w-5" />
                 </Button>
               </div>
@@ -60,6 +66,7 @@ const Header = ({ theme, toggleTheme, handleSocialClick, isMenuOpen, setIsMenuOp
                 size="icon"
                 onClick={toggleTheme}
                 className="hover:bg-white/10"
+                aria-label="Toggle dark/light theme"
               >
                 {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
@@ -67,6 +74,7 @@ const Header = ({ theme, toggleTheme, handleSocialClick, isMenuOpen, setIsMenuOp
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle navigation menu"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
@@ -88,7 +96,12 @@ const Header = ({ theme, toggleTheme, handleSocialClick, isMenuOpen, setIsMenuOp
                 ))}
                 
                 <div className="flex space-x-2 pt-4 border-t border-white/10">
-                  <Button variant="ghost" size="icon" onClick={() => handleSocialClick('https://www.linkedin.com/in/pratik-srivastav-b8a830348/')}>
+                  <Button 
+                    variant="ghost" 
+                    size="icon" 
+                    onClick={() => handleSocialClick('https://www.linkedin.com/in/pratik-srivastav-b8a830348/')}
+                    aria-label="Visit LinkedIn profile"
+                  >
                     <Linkedin className="h-5 w-5" />
                   </Button>
                 </div>
@@ -111,7 +124,12 @@ const Footer = ({ handleSocialClick }) => (
         </div>
         
         <div className="flex space-x-6">
-          <Button variant="ghost" size="icon" onClick={() => handleSocialClick('https://www.linkedin.com/in/pratik-srivastav-b8a830348/')}>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={() => handleSocialClick('https://www.linkedin.com/in/pratik-srivastav-b8a830348/')}
+            aria-label="Visit LinkedIn profile"
+          >
             <Linkedin className="h-5 w-5" />
           </Button>
         </div>

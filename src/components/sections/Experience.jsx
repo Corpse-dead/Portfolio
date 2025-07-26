@@ -136,6 +136,60 @@ const Experience = () => {
               </div>
             </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="experience-card rounded-2xl p-8"
+          >
+            <div className="grid lg:grid-cols-4 gap-8 items-center">
+              <div className="lg:col-span-1 space-y-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                  <Award className="h-8 w-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Documents</h3>
+                  <p className="text-gray-400">Resume & Certificates</p>
+                </div>
+              </div>
+              <div className="lg:col-span-3 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div className="flex-grow">
+                  <h4 className="text-2xl font-semibold">Resume & Additional Documents</h4>
+                  <p className="text-gray-400 mt-1">Download my latest resume and certificates</p>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                  <Button 
+                    variant="outline"
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = '/RESUME 2.0.pdf';
+                      link.download = 'RESUME 2.0.pdf';
+                      link.click();
+                    }}
+                    className="border-white/20 hover:bg-white/10 w-full sm:w-auto"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Download Resume
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    onClick={() => {
+                      const link = document.createElement('a');
+                      link.href = '/PRDX2500476.pdf';
+                      link.download = 'PRDX2500476.pdf';
+                      link.click();
+                    }}
+                    className="border-white/20 hover:bg-white/10 w-full sm:w-auto"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Download Certificate
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
